@@ -83,6 +83,6 @@ html, body {
   border: none;
   border-bottom: 2px solid #BD83CE;
 }
-.genbtn:hover {
+.genbtn:hover, .genbtn:active {
   border-color: #E5B0EA;
 }
