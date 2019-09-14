@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="master.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <script src="script.js" charset="utf-8"></script>
-    <title></title>
+    <title>Music Remix</title>
   </head>
-  <body>
-
+  <body class="grid-container">
+    <div class="header-container grid-item">
+      <h1 class="header-item">Music Remix</h1>
+    </div>
+    <p class="label grid-item ml">
+      Search for a song: <strong>Melody</strong>
+    </p>
+    <input type="text" placeholder="Search for a Song" class="song-search grid-item " id="melody-search"></input>
+    <p class="label grid-item hl">
+      Search for a song: <strong>Harmony</strong>
+    </p>
+    <input type="text" placeholder="Search for a Song" class="song-search grid-item" id="harmony-search"></input>
+    <p class="label grid-item bl">
+      Search for a song: <strong>Beat</strong>
+    </p>
+    <input type="text" placeholder="Search for a Song" class="song-search grid-item" id="beat-search"></input>
+    <button type="button" name="submit" class="grid-item genbtn">Generate Song</button>
   </body>
 </html>

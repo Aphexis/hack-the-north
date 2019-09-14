@@ -1,0 +1,88 @@
+/*
+  colours: white: #F7E8F6; accent: #BD83CE; sub-accent(hover): E5B0EA
+
+*/
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: 100px auto auto auto 40px;
+  grid-gap: 10px;
+  grid-template-areas: "header header"
+                       "ml ms"
+                       "hl hs"
+                       "bl bs"
+                       "btn ."
+}
+
+
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: none;
+  margin: none;
+  background-color: #BD83CE;
+  grid-area: header;
+}
+.header-item {
+  text-align: center;
+  vertical-align: center;
+}
+
+.label {
+  font-family: 'Roboto', sans-serif;
+}
+.song-search {
+  padding: 0px 8px;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #BD83CE;
+}
+.song-search:hover {
+  border-color: #E5B0EA;
+}
+.grid-item {
+  padding: 10px;
+}
+.ml {
+  grid-area: ml;
+}
+.ms {
+  grid-area: ms;
+}
+.hl {
+  grid-area: hl;
+}
+.hs {
+  grid-area: hs;
+}
+.bl {
+  grid-area: bl;
+}
+.bs {
+  grid-area: bs;
+}
+.genbtn {
+  font-family: 'Roboto', sans-serif;
+  grid-area: btn;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #BD83CE;
+}
+.genbtn:hover {
+  border-color: #E5B0EA;
+}
