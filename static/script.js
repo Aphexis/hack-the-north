@@ -10,10 +10,10 @@ $(document).ready(function() {
 
 
         //do the ajax call
-        let server_url = "http://fb509cfe.ngrok.io/getData"; //TODO get the server_url
+        let server_url = "http://127.0.0.1:5005/getData"; //TODO get the server_url
         $.get(server_url+"?q="+safe_query, function(data) {
             console.log(data);
-            ids = JSON.parse(data);
+            ids = data;
 
             for (let i = 0; i < ids.length; i++){
               element.append('<iframe src="https://open.spotify.com/embed/track/' + ids[i] +  'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>');
