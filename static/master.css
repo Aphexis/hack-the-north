@@ -6,9 +6,19 @@
 html, body {
   margin: 0px;
   padding: 0px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   background-color: white;
+}
+
+.iframe-container {
+  width: 90%;
+  margin: 0;
+  padding: 4px 0px;
+}
+.iframe-container:hover, .iframe-container:active {
+  background-color: #E5B0EA;
+  transition: 200ms;
 }
 
 .grid-container {
@@ -16,14 +26,13 @@ html, body {
   grid-template-columns: 1fr 3fr;
   grid-auto-rows: 100px auto auto auto 40px;
   grid-gap: 10px;
+  align-items: flex-start;
   grid-template-areas: "header header"
                        "ml ms"
                        "hl hs"
                        "bl bs"
                        "btn ."
 }
-
-
 
 .header-container {
   display: flex;
@@ -43,10 +52,10 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 .song-search {
-  padding: 0px 8px;
+  padding: 10px;
   outline: none;
   font-family: 'Roboto', sans-serif;
-  width: 100%;
+  width: 90%;
   background: none;
   border: none;
   border-bottom: 2px solid #BD83CE;
@@ -55,6 +64,7 @@ html, body {
   border-color: #E5B0EA;
 }
 .grid-item {
+  align-self: baseline;
   padding: 10px;
 }
 .ml {

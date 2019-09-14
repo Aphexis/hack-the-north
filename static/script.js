@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   $(".song-search").keyup(function(e) {
       if(e.which == 13) {
-        let element = this;
+        let element = this.parentElement;
         let query = this.value;
         console.log(query);
         let safe_query = encodeURIComponent(query);
@@ -14,9 +14,27 @@ $(document).ready(function() {
         $.get(server_url+"?q="+safe_query, function(data) {
             console.log(data);
             ids = data;
+            console.log(element);
 
             for (let i = 0; i < ids.length; i++){
-              element.append('<iframe src="https://open.spotify.com/embed/track/' + ids[i] +  'width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>');
+              let link = "https://open.spotify.com/embed/track/" + ids[i];
+              let iframe_container = document.createElement("div");
+              let iframe_el = document.createElement("iframe");
+              let attr = {
+                "src":link,
+                "width": "300",
+                "height": "80",
+                "frameborder": "0",
+                "allowtransparency": "true",
+                "allow": "encrypted-media"
+              };
+              for (key in attr){
+                iframe_el.setAttribute(key, attr[key]);
+              }
+              iframe_container.appendChild(iframe_el);
+              iframe_container.classList.add("iframe-container");
+              element.appendChild(iframe_container);
+
             }
 
           }, "json");
