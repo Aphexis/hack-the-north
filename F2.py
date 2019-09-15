@@ -10,7 +10,8 @@ def melody(filename):
 
     midi = mido.MidiFile(filename, clip=True)
 
-    a = calcMelody(filename)
+    # a = calcMelody
+    a=0
     if a != 16:
         for msg in mido.merge_tracks(midi.tracks):
             out = str(msg)
@@ -20,3 +21,5 @@ def melody(filename):
                     #print(out)
     mid.save('melody.mid')
     return track
+
+melody('Demons.mid')
