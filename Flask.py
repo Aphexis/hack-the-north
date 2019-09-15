@@ -126,7 +126,8 @@ def upload():
     blob = bucket.blob(url)
     number += 1
     blob.upload_from_filename(args)
-    return generate_signed_url("hackthenorth-lads", url, 600000)
+    output = json.dumps({"link": generate_signed_url("hackthenorth-lads", url, 600000)})
+    return output
 
 @app.route('/downloadData', methods = ['GET'])
 def download():

@@ -24,7 +24,7 @@ def bass(filename):
 
             if out[pos+8:pos+9] == '9':
                 track.append(msg)
-                print(out)
+                # print(out)
     mid.ticks_per_beat = 70
     mid.save('bass.mid')
     return track
