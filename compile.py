@@ -1,9 +1,9 @@
 import mido
+import fluidsynth
 from midi2audio import FluidSynth
-from mido import *
 import music21
-from mido import MidiFile, MidiTrack
 from music21 import *
+from mido import MidiFile, MidiTrack
 from F2 import melody
 from Bass import bass
 
@@ -30,7 +30,15 @@ def compile(melodySong, bassSong):
 
     mid.save('final.mid')
 
-    fs = FluidSynth()
-    fs.midi_to_audio('final.mid', 'final.wav')
+    #audio
+    mf = midi.MidiFile()
+    mf.open('final.mid')
+    mf.read()
+    mf.close()
+
+    s = midi.translate.midiFileToStream(mf)
+    sp = midi.realtime.StreamPlayer(s)
+    sp.play()
+
 
 compile('Unravel.mid','BB.mid')
