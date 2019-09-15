@@ -1,4 +1,5 @@
 import mido
+from midi2audio import FluidSynth
 from mido import *
 import music21
 from mido import MidiFile, MidiTrack
@@ -26,3 +27,4 @@ def compile(melodySong, bassSong):
         track.append(mido.Message.from_str(out))
 
     mid.save('final.mid')
+    FluidSynth().midi_to_audio('final.mid', 'final.wav')
