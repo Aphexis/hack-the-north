@@ -60,16 +60,18 @@ $(document).ready(function() {
     let melodyId = sessionStorage.getItem("melodyId");
     let harmonyId = sessionStorage.getItem("harmonyId");
     let beatId = sessionStorage.getItem("beatId");
-    let server_url = "http://127.0.0.1:5005/"
+    let server_url = "http://127.0.0.1:5005/uploadData"
     $.get(server_url, {
       "melody": melodyId,
       "harmony":harmonyId,
       "beat":beatId
     }, function(data) {
+      /*
       let audio_el = document.createElement("audio");
       document.body.appendChild(audio_el);
       audio_el.setAttribute("src", data["link"]);
       audio_el.setAttribute("type", "audio/mpeg");
+      */
     }, "json");
   });
 });

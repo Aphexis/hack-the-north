@@ -16,7 +16,7 @@ from google.oauth2 import service_account
 
 storage_client = storage.Client()
 app = Flask(__name__)
-google_credentials = service_account.Credentials.from_service_account_file( "C:\\Users\\alex.zhang\\Downloads\\My First Project-9b83f8fdfa25.json")
+google_credentials = service_account.Credentials.from_service_account_file("C:\\Users\\dylan\\OneDrive\\Documents\\School\\University\\Hack the North\\google_creds.json")
 bucket = storage_client.get_bucket("hackthenorth-lads")
 def generate_signed_url(bucket_name, object_name,
                         expiration, http_method='GET', query_parameters=None,
@@ -33,7 +33,7 @@ def generate_signed_url(bucket_name, object_name,
     request_timestamp = datetime_now.strftime('%Y%m%dT%H%M%SZ')
     datestamp = datetime_now.strftime('%Y%m%d')
 
-    
+
     client_email = google_credentials.service_account_email
     credential_scope = '{}/auto/storage/goog4_request'.format(datestamp)
     credential = '{}/{}'.format(client_email, credential_scope)
@@ -117,7 +117,7 @@ def query(_q):
    return json.dumps(ids)
 
 number = 1
-@app.route('/uploadData', methods = ['POST'])
+@app.route('/uploadData', methods = ['POST, GET'])
 def upload():
     global number
     url = "song" + str(number)
@@ -145,4 +145,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True, port = 5005)
-
