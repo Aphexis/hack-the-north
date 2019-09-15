@@ -22,10 +22,11 @@ def bass(filename):
             pos = out.find("channel=")
             # print()
 
-            if out[pos+8:pos+9] == 9:
+            if out[pos+8:pos+9] == '9':
                 track.append(msg)
                 #print(out)
     mid.save('bass.mid')
+    return track
 
 # channel10 = mido.MidiFile('channel10.midi', clip=True)
 

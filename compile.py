@@ -13,19 +13,24 @@ def compile(melodySong, bassSong):
     bass(bassSong)
 
     mid = MidiFile()
-    track = MidiTrack()
+    perc = bass(bassSong)
+    mel = melody(melodySong)
+    mid.tracks.append(mel)
+    mid.tracks.append(perc)
 
-    mid.tracks.append(track)
-    BassMidi = mido.MidiFile('bass.mid', clip=True)
-    MelodyMidi = mido.MidiFile('melody.mid', clip=True)
+    # mid.tracks.append(track)
+    # BassMidi = mido.MidiFile('bass.mid', clip=True)
+    # MelodyMidi = mido.MidiFile('melody.mid', clip=True)
     mid.ticks_per_beat = 70
-
-    for msg in mido.merge_tracks(BassMidi.tracks):
-        out = str(msg)
-        track.append(mido.Message.from_str(out))
-    for msg in mido.merge_tracks(MelodyMidi.tracks):
-        out = str(msg)
-        track.append(mido.Message.from_str(out))
+    #
+    # for msg in mido.merge_tracks(BassMidi.tracks):
+    #     track.append(msg)
+    # for msg in mido.merge_tracks(MelodyMidi.tracks):
+    #     track.append(msg)
 
     mid.save('final.mid')
-    FluidSynth().midi_to_audio('final.mid', 'final.wav')
+
+    fs = FluidSynth()
+    fs.midi_to_audio('final.mid', 'final.wav')
+
+compile('Unravel.mid','BB.mid')

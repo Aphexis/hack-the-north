@@ -19,3 +19,4 @@ def melody(filename):
                track.append(mido.Message.from_str(out))
                     #print(out)
     mid.save('melody.mid')
+    return track
