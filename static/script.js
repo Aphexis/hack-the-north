@@ -7,10 +7,13 @@ $(document).ready(function() {
       let query = this.value;
       console.log(query);
       let safe_query = encodeURIComponent(query);
-
+      while (element.hasChildNodes()) {
+        element.removeChild(element.lastChild);
+    }
 
       //do the ajax call
       let server_url = "http://localhost:5005/getData"; //TODO get the server_url
+      
       $.get(server_url+"?q="+safe_query, function(data) {
         console.log(data);
         ids = data;

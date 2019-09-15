@@ -1,5 +1,6 @@
 import mido
 import fluidsynth
+import os
 from midi2audio import FluidSynth
 import music21
 from music21 import *
@@ -41,8 +42,7 @@ def compile(melodySong, bassSong):
     mf.close()
 
     s = midi.translate.midiFileToStream(mf)
-    sp = midi.realtime.StreamPlayer(s)
-    sp.play()
-
-
-# compile('Unravel.mid','We-Will-Rock-You.mid')
+    # sp = midi.realtime.StreamPlayer(s)
+    # sp.play()
+    print(os.path.abspath("./final.mid"))
+    return os.path.abspath("./final.mid")
