@@ -20,6 +20,9 @@ html, body {
   background-color: #E5B0EA;
   transition: 200ms;
 }
+.iframe-container-toggle {
+  background-color: #BD83CE !important;
+}
 
 .grid-container {
   display: grid;
