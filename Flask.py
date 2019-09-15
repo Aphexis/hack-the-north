@@ -12,7 +12,7 @@ import sys
 from six.moves.urllib.parse import quote
 # pip install google-auth
 from google.oauth2 import service_account
-
+import compile
 
 storage_client = storage.Client()
 app = Flask(__name__)
@@ -119,13 +119,14 @@ def query(_q):
 number = 1
 @app.route('/uploadData', methods = ['POST'])
 def upload():
+    args = compile.compile('Unravel.mid','BB.mid')
     global number
     url = "song" + str(number)
     print(url)
     blob = bucket.blob(url)
     number += 1
-    blob.upload_from_filename(request.form['url'])
-    return "SUCCESS"
+    blob.upload_from_filename(args)
+    return generate_signed_url("hackthenorth-lads", url, 600000)
 
 @app.route('/downloadData', methods = ['GET'])
 def download():
@@ -142,6 +143,7 @@ def getData():
 @app.route('/')
 def index():
     return render_template("index.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port = 5005)
