@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 
       //do the ajax call
-      let server_url = "http://127.0.0.1:5005/getData"; //TODO get the server_url
+      let server_url = "http://localhost:5005/getData"; //TODO get the server_url
       $.get(server_url+"?q="+safe_query, function(data) {
         console.log(data);
         ids = data;
@@ -60,7 +60,6 @@ $(document).ready(function() {
     let melodyId = sessionStorage.getItem("melodyId");
     let harmonyId = sessionStorage.getItem("harmonyId");
     let beatId = sessionStorage.getItem("beatId");
-
     let server_url = "http://127.0.0.1:5005/"
     $.get(server_url, {
       "melody": melodyId,
@@ -71,7 +70,6 @@ $(document).ready(function() {
       document.body.appendChild(audio_el);
       audio_el.setAttribute("src", data["link"]);
       audio_el.setAttribute("type", "audio/mpeg");
-
     }, "json");
   });
 });
