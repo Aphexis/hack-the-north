@@ -18,6 +18,7 @@ def compile(melodySong, bassSong):
     mid.tracks.append(track)
     BassMidi = mido.MidiFile('bass.mid', clip=True)
     MelodyMidi = mido.MidiFile('melody.mid', clip=True)
+    mid.ticks_per_beat = 70
 
     for msg in mido.merge_tracks(BassMidi.tracks):
         out = str(msg)
