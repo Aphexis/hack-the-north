@@ -1,9 +1,9 @@
 import mido
+import fluidsynth
 from midi2audio import FluidSynth
-from mido import *
 import music21
-from mido import MidiFile, MidiTrack
 from music21 import *
+from mido import MidiFile, MidiTrack
 from F2 import melody
 from Bass import bass
 
@@ -26,15 +26,23 @@ def compile(melodySong, bassSong):
     # MelodyMidi = mido.MidiFile('melody.mid', clip=True)
     mid.ticks_per_beat = 70
     mid.tracks.append(harm.tracks[0])
-    midi.tecks_per_beat = 120
+    mid.ticks_per_beat = 120
     # for msg in mido.merge_tracks(BassMidi.tracks):
     #     track.append(msg)
     # for msg in mido.merge_tracks(MelodyMidi.tracks):
     #     track.append(msg)
 
     mid.save('final.mid')
+    
+    #audio
+    mf = midi.MidiFile()
+    mf.open('final.mid')
+    mf.read()
+    mf.close()
 
-    # fs = FluidSynth()
-    # fs.midi_to_audio('final.mid', 'final.wav')
+    s = midi.translate.midiFileToStream(mf)
+    sp = midi.realtime.StreamPlayer(s)
+    sp.play()
+
 
 compile('Dragons.mid','BB.mid')
